@@ -19,7 +19,7 @@ devEnv              = pkgs.mkShellNoCC {
         gcc
         cmake
         cmakeCurses
-
+        gnumake
      ] ++ macOsSpecificTools;
      buildInputs = with pkgs; [
         openssl
