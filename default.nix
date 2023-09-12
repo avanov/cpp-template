@@ -12,7 +12,7 @@ pkgs                = env.pkgs;
 gcc                 = pkgs.gcc12;
 
 macOsSpecificTools  = [];
-devEnv              = pkgs.mkShellNoCC {
+devEnv              = pkgs.mkShell {
      # Sets the build inputs, i.e. what will be available in our
      # local environment.
      nativeBuildInputs = with pkgs; [
@@ -31,7 +31,7 @@ devEnv              = pkgs.mkShellNoCC {
          # for no apparent reason, this prevents `ld: library not found for -liconv` errors on recent MacOS versions
          unset NIX_LDFLAGS
 
-         export CXX="${gcc}/bin/gcc"
+         export CXX_GCC="${gcc}/bin/g++"
      '';
 };
 
